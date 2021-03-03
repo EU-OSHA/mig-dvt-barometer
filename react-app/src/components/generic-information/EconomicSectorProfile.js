@@ -6,6 +6,7 @@ class EconomicSectorProfile extends Component
 	{
 		return(
 			<div>
+				<p>This is EconomicSectorProfile</p>
 			</div>
 		)
 	}

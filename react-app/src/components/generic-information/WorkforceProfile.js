@@ -6,6 +6,7 @@ class WorkforceProfile extends Component
 	{
 		return(
 			<div>
+				<p>This is WorkforceProfile</p>
 			</div>
 		)
 	}
