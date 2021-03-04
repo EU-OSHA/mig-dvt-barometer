@@ -1,19 +1,18 @@
 import React, { Component } from 'react';
+import { useParams } from 'react-router-dom';
 
 import Header from './components/common/Header';
 import Footer from './components/common/Footer';
-
-import { Button } from 'react-bootstrap';
 
 import './style/App.scss';
 
 const App = ({children}) => 
 {
 	return(
-		<div>			
+		<div>
 			<Header />
 			
-			{children}		
+			{children}
 
 			<Footer />
 		</div>

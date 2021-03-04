@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 
 class EconomicSectorProfile extends Component
 {
+	constructor(props)
+	{
+		super(props);
+		console.log('props', props);
+	}
+
 	render()
 	{
 		return(
