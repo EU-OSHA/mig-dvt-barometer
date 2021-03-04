@@ -310,8 +310,8 @@ hr {
   margin-top: 18px;
   margin-bottom: 18px;
   border: 0;
-  border-top: 1px solid $gray-lighter; }
-
+  border-top: 1px solid $gray-lighter; 
+}
 .sr-only {
   position: absolute;
   width: 1px;
@@ -532,7 +532,6 @@ a.bg-danger:focus {
   padding-bottom: 8px;
   margin: 36px 0 18px;
   border-bottom: 1px solid $gray-lighter; }
-
 ul,
 ol {
   margin-top: 0;
@@ -2893,10 +2892,11 @@ tbody.collapse.in {
       border-top: 0;
       box-shadow: none; }
       .navbar-collapse.collapse {
-        display: block;
+        display: block !important;
         height: auto ;
         padding-bottom: 0;
-        overflow: visible; }
+        overflow: visible  !important;
+      }
       .navbar-collapse.in {
         overflow-y: visible; }
       .navbar-fixed-top .navbar-collapse,
@@ -3773,7 +3773,8 @@ button.list-group-item {
   z-index: 2;
   color: #fff;
   background-color: #337ab7;
-  border-color: #337ab7; }
+  border-color: #337ab7; 
+  }
   .list-group-item.active .list-group-item-heading,
   .list-group-item.active .list-group-item-heading > small,
   .list-group-item.active .list-group-item-heading > .small, .list-group-item.active:hover .list-group-item-heading,

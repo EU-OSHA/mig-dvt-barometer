@@ -25,7 +25,7 @@
           .osh-barometer-legend{
             .main-title{
               a{
-                background: url(../img/icono-barometer.svg) 0 0rem no-repeat;
+                background: url(./img/icono-barometer.svg) 0 0rem no-repeat;
                 background-size: 4.5rem 4.5rem;
                 padding-left: 6rem;
                 margin-left: 1rem;
@@ -164,8 +164,15 @@
             margin: 0 auto;
             z-index: -1;
             min-height: auto !important;
+            .navbar-collapse{
+              flex-grow: 0;
+              flex-basis: auto;
+            }
             .navbar-nav{
               padding-right: 1.5rem;
+              display: block;
+              flex-direction: row;
+              justify-content: flex-end;
               > li.dropdown{
                   .fa-caret-down:before{
                       color:$aquamarine;

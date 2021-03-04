@@ -6,6 +6,7 @@ class OSHAuthorities extends Component
 	{
 		return(
 			<div>
+				<p>This is OSHAuthorities</p>
 			</div>
 		)
 	}
