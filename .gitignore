@@ -1,6 +1,7 @@
 # npm
-/react-app/.cache/*
-/react-app/node_modules/**/*
-/react-app/dist/*
+.cache/*
+.vscode/*
+node_modules/**/*
+dist/*
 
-/react-app/package-lock.json
+package-lock.json
