@@ -16,8 +16,8 @@ class Header extends Component
 							<div className="eu-osha-logo">
 								<a href="https://osha.europa.eu" role="link" title="EUOSHA corporate website" tabIndex="0" >
 									<picture>
-										<source media="(max-width:619px)" srcSet="../../style/img/EU-OSHA-en-x2.png" />
-										<img src="../..//style/img/EU-OSHA-en.png" alt="European Agency for Safety and Health at Work" />
+										<source media="(max-width:619px)" srcSet={require("../../style/img/EU-OSHA-en-x2.png")} />
+										<img src={require("../..//style/img/EU-OSHA-en.png")} alt="European Agency for Safety and Health at Work" />
 									</picture>
 								</a>
 							</div>

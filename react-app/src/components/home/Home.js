@@ -86,17 +86,18 @@ class Home extends Component
 					<div className="agencies--logos--block">
 						<ul>
 							<li><a href="https://ec.europa.eu/eurostat/" title="visit the  web" target="_blank">
-								<img src="../style/img/eurostat-logo.png" /></a>
+								<img src={require("../../style/img/eurostat-logo.png")} /></a>
 							</li>
 							<li><a href="https://www.eurofound.europa.eu/" title="visit the  web" target="_blank">
-								<img src="../style/img/eurofound-logo.png" /></a>
+								<img src={require("../../style/img/eurofound-logo.png")} /></a>
 							</li>
 							<li>
-								<a href="https://osha.europa.eu/" title="visit the  web" target="_blank"><img src="../style/img/logo.png" /></a>
+								<a href="https://osha.europa.eu/" title="visit the  web" target="_blank">
+								<img src={require("../../style/img/logo.png")} /></a>
 							</li>
 							<li>
 								<a href="https://visualisation.osha.europa.eu/esener#!/en" title="visit the web" target="_blank">
-								<img src="../style/img/esener-logo.png" /></a>
+								<img src={require("../../style/img/esener-logo.png")} /></a>
 							</li>
 						</ul>
 					</div>
