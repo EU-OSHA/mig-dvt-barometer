@@ -9,14 +9,15 @@ class Home extends Component
 				<section className="advice-home container-fluid section--page eu-background">
 					<div className="container column--grid--block">
 						<div className="column--item">
-							<h2 className="title--section second-color uppercase ng-binding" data-ng-bind="i18n.L22122">ABOUT US</h2>
+							<h2 className="title--section second-color uppercase">{this.props.literals.L22122}</h2>
 							<p className="main-title">
-								<span className="title ng-binding" data-ng-bind="i18n.L22020">OSH BAROMETER</span> 
-								<span className="subtitle ng-binding" data-ng-bind="i18n.L22107">Data visualisation tool</span>
+								<span className="title">{this.props.literals.L22020}</span> 
+								<span className="subtitle">{this.props.literals.L22107}</span>
 							</p>
 							<div data-ng-bind-html="i18n.L22108" className="">
-								<p>The OSH Barometer is an EU-wide public information system on the most important facts and figures of <strong>Occupational Safety and Health</strong>. The system provides visualised information for important OSH indicators at EU and national level; it is based on statistics, surveys and public data.</p>
-								<p>The OSH Barometer presents data from several different sources; some dating back to 2010 where trends are presented. At the time these data were collected, the UK was still a member of the European Union and therefore the UK results are included in the OSH Barometer and the EU average is presented as EU28. In successive updates of the OSH Barometer, UK data will be progressively eliminated.</p>
+							{this.props.literals.L22108}
+								{/* <p>The OSH Barometer is an EU-wide public information system on the most important facts and figures of <strong>Occupational Safety and Health</strong>. The system provides visualised information for important OSH indicators at EU and national level; it is based on statistics, surveys and public data.</p>
+								<p>The OSH Barometer presents data from several different sources; some dating back to 2010 where trends are presented. At the time these data were collected, the UK was still a member of the European Union and therefore the UK results are included in the OSH Barometer and the EU average is presented as EU28. In successive updates of the OSH Barometer, UK data will be progressively eliminated.</p> */}
 							</div>
 							<p className="btn--block-full left-text">
 								<a data-ui-sref="about-tool" className="btn-default btn-main-color ng-binding" data-ng-bind="i18n.L22110" href="about-the-system">Discover the tool</a>
