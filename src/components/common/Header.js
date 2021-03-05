@@ -45,7 +45,7 @@ class Header extends Component
 							<div className="collapse navbar-collapse" id="main-menu">
 								<ul className="nav navbar-nav">
 									<li className="dropdown ng-scope main-menu-selected" ng-repeat="level0 in structure" ng-className="isCurrentStateMenu('home')">
-										<NavLink className="header-link" accessKey="0" tabIndex="1" to="/">Home
+										<NavLink className="header-link" accessKey="0" tabIndex="1" to="/">
 											<span ng-if="level0.id == 'home'" data-ng-bind-html="level0.name">
 												<i className="fa fa-home"></i> <span>Home</span>
 											</span>

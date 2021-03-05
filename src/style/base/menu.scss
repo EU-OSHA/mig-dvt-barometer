@@ -208,6 +208,11 @@
                       &:focus, &:visited{
                         background: transparent;
                       }
+                      &.dropdown-toggle{
+                        &::after{
+                          display: none;
+                        }
+                      }
                   }
                   &.active{
                       //border-bottom: 6px solid $orange;
@@ -224,6 +229,7 @@
                     transition: all 0.4s ease-out;
                     .dropdown-menu{
                         display:block;
+                        position: absolute;
                     }
                   }
                   &:not( :hover ){
