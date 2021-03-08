@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import Methodology from '../common/Methodology';
+
 class EconomicSectorProfile extends Component
 {
 	constructor(props)
@@ -246,7 +248,8 @@ class EconomicSectorProfile extends Component
 						{/* END CONTENT */}
 					</div>
 				</section>
-
+				
+				<Methodology />
 
 				<section className="container-full section--page section--related--content ng-isolate-scope" items="relatedItems">
 					<div className="container related--content--wrapper">

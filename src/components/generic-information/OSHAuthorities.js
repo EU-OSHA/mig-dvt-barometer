@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+import Methodology from '../common/Methodology';
+
 
 class OSHAuthorities extends Component
 {
@@ -115,7 +117,7 @@ class OSHAuthorities extends Component
 				</div>
 				</section>
 
-
+				<Methodology />
 			</div>
 		)
 	}

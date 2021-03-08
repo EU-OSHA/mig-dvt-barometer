@@ -1695,6 +1695,12 @@
       &:after{
          content: "\f106";
       }
+      ~ .accordion-content{
+        max-height: 1000000000rem;
+        height: auto;
+        -webkit-transition: max-height 4.2s; 
+        transition: max-height 4.2s;
+      }
     }
     &:hover{
       opacity:0.6;
@@ -1724,6 +1730,12 @@
       //color:$aquamarine;
       &:after{
         content: "\f068";
+      }
+      ~ .accordion-content{
+        max-height: 1000000000rem;
+        height: auto;
+        -webkit-transition: max-height 4.2s; 
+        transition: max-height 4.2s;
       }
     }
     &:hover{
@@ -1765,18 +1777,18 @@
       }
     }    
     &.active{
-      max-height: 1000000000rem;
-      height: auto;
+      //max-height: 1000000000rem;
+      //height: auto;
      // -webkit-transition: max-height 4.2s; 
      // transition: max-height 4.2s;
     }
     .accordion-content{
       margin: 0rem 0 0rem 2rem;
       &.active{
-        max-height: 1000rem;
-        height: auto;
-        -webkit-transition: max-height 2.2s; 
-        transition: max-height 2.2s;
+        //max-height: 1000rem;
+        //height: auto;
+        //-webkit-transition: max-height 2.2s; 
+        //transition: max-height 2.2s;
       }
     }
     .btn-main-color{
