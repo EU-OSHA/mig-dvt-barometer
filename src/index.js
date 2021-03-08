@@ -17,17 +17,19 @@ import WorkforceProfile from './components/generic-information/WorkforceProfile'
 
 const store = createStore(reducer);
 
+const literals = require('./model/Literals.json');
+
 ReactDOM.render(
 	<Provider store={store}>
 		<BrowserRouter >
 			<Switch>
-				<Route exact path="/" render={() => <App><Home /></App>} />
-				<Route exact path="/generic-information/osh-authorities" render={() => <App><OSHAuthorities /></App>} />
+				<Route exact path="/" render={() => <App><Home literals={literals}/></App>} />
+				<Route exact path="/generic-information/osh-authorities" render={() => <App><OSHAuthorities literals={literals}/></App>} />
 				<Route 
 					path="/generic-information/economic-sector-profile/:country1/:country2?" 
-					render={routeParams => <App><EconomicSectorProfile country1={routeParams.match.params.country1} country2={routeParams.match.params.country2} /></App>} 
+					render={routeParams => <App><EconomicSectorProfile country1={routeParams.match.params.country1} country2={routeParams.match.params.country2} literals={literals}/></App>} 
 				/>
-				<Route exact path="/generic-information/workforce-profile" render={() => <App><WorkforceProfile /></App>} />
+				<Route exact path="/generic-information/workforce-profile" render={() => <App><WorkforceProfile literals={literals}/></App>} />
 			</Switch>		
 		</BrowserRouter>
 	</Provider>, 
