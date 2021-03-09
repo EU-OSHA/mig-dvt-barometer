@@ -1,9 +1,98 @@
 import React, { Component } from 'react';
 import ReactHtmlParser from 'react-html-parser';
 import { Link } from 'react-router-dom';
+import $ from "jquery";
 
 class Home extends Component
 {
+	componentDidMount(){
+      
+		function getWidth(){
+			if (typeof window.innerWidth != 'undefined') {
+				return window.innerWidth;
+			}
+			else if (typeof document.documentElement != 'undefined' && typeof document.documentElement.clientWidth != 'undefined' && document.documentElement.clientWidth != 0) {
+				return document.documentElement.clientWidth;
+			}
+			else {
+				return document.getElementsByTagName('body')[0].clientWidth;
+			}
+		}
+   
+		var screenWidth = getWidth();
+		createCarousel(screenWidth);
+   
+		$(window).on("resize scroll",function(e){
+			var screenWidth = getWidth();		  
+			createCarousel(screenWidth);
+		});   
+   
+		function hideControls(items){
+			if(items == 6){
+				$('.carousel-control-group').addClass('hide');
+			} else {
+				$('.carousel-control-group').removeClass('hide');
+			}
+		}
+   
+		function createCarousel(screenWidth){      
+			if( screenWidth >= 1919){
+				var numItems = 6;
+			}
+			else if( screenWidth >= 1600 && screenWidth < 1919 ){
+				var numItems =5;
+			}
+			else if( screenWidth >= 1200 && screenWidth < 1600 ){
+				var numItems =4;
+			}
+			else if( screenWidth >= 992 && screenWidth < 1200  ){
+				var numItems = 3;
+			}
+			else if(  screenWidth >= 768 && screenWidth < 992 ){
+				var numItems = 2;
+			}
+			else if( screenWidth < 768 && screenWidth > 420){
+				var numItems = 1;
+			} else {
+				var numItems = 1;
+			}
+			hideControls(numItems);
+
+			$('.carousel-showmanymoveone .item').each(function(){      
+				var itemToClone = $(this);	
+				$('>div.cloned',this).remove();					
+
+				for (var i=1;i<numItems;i++) {				  	
+					itemToClone = itemToClone.next();
+					// wrap around if at end of item collection
+					if (!itemToClone.length) {
+						itemToClone = $(this).siblings(':first');	        
+					}
+					// grab item, clone, add marker class, add to collection
+					itemToClone.children(':first-child').clone().addClass("cloned").addClass("cloneditem-"+(i)).appendTo($(this));	    
+				}
+			});
+		}
+		$(".carousel").on("touchstart", function(event){
+			if( numItems != 6){				   
+			   	var xClick = event.originalEvent.touches[0].pageX;
+
+			   	$(this).one("touchmove", function(event){
+					var xMove = event.originalEvent.touches[0].pageX;
+					if( Math.floor(xClick - xMove) > 5 ){
+						$(this).carousel('next');
+					}
+					else if( Math.floor(xClick - xMove) < -5 ){
+						$(this).carousel('prev');
+					}
+			   	});
+
+				$(".carousel").on("touchend", function(){
+					$(this).off("touchmove");
+				});
+			}
+		});
+	}
 	render()
 	{
 		return(
@@ -20,7 +109,7 @@ class Home extends Component
 							{ReactHtmlParser(this.props.literals.L22108)}
 							</div>
 							<p className="btn--block-full left-text">
-								<a data-ui-sref="about-tool" className="btn-default btn-main-color ng-binding" data-ng-bind="i18n.L22110" href="about-the-system">Discover the tool</a>
+								<a data-to="about-tool" className="btn-default btn-main-color ng-binding" data-ng-bind="i18n.L22110" href="about-the-system">Discover the tool</a>
 							</p>
 						</div>
 						<div className="column--item valign eu-background">
@@ -84,135 +173,135 @@ class Home extends Component
 				</div>
 
 				{/* CARROUSEL HOME */}
-				<section class=" section--page carrousel-items background-main-lighter">
-					<div class="container discover--charts--section">
-						<h2 class="title-section main-color"></h2>
-						<div class="carousel-control-group">
-							<Link class="left carousel-control" href="#carousel-tilenav" ng-non-bindable data-slide="next">
-								<i class="fa fa-angle-right" aria-hidden="true"></i>
+				<section className=" section--page carrousel-items background-main-lighter">
+					<div className="container discover--charts--section">
+						<h2 className="title-section main-color"></h2>
+						<div className="carousel-control-group">
+							<Link className="left carousel-control" href="#carousel-tilenav" data-slide="next">
+								<i className="fa fa-angle-right" aria-hidden="true"></i>
 							</Link>
-							<Link class="right carousel-control" href="#carousel-tilenav" ng-non-bindable data-slide="prev">
-								<i class="fa fa-angle-left" aria-hidden="true"></i>
+							<Link className="right carousel-control" href="#carousel-tilenav" data-slide="prev">
+								<i className="fa fa-angle-left" aria-hidden="true"></i>
 							</Link>
 						</div>
 					</div>
-					<div class="carousel carousel-showmanymoveone slide" id="carousel-tilenav" data-interval="false">
-						<div class="carousel-inner">
-							<div class="item active">
-								<div class="col-xs-12 col-sm-6 col-md-4 col-ml-3 col-lg-2">
-									<div class="content">
-										<Link class="icon--card economic-chart-icon" ui-sref="economic-sector-profile ({pCountry:pCountry1})">
+					<div className="carousel carousel-showmanymoveone slide" id="carousel-tilenav" data-interval="false">
+						<div className="carousel-inner">
+							<div className="item active">
+								<div className="col-xs-12 col-sm-6 col-md-4 col-ml-3 col-lg-2">
+									<div className="content">
+										<Link className="icon--card economic-chart-icon" to="economic-sector-profile ({pCountry:pCountry1})">
 										</Link>
-										<h3 class="title--card">
-											<Link ui-sref="economic-sector-profile ({pCountry:pCountry1})">
+										<h3 className="title--card">
+											<Link to="economic-sector-profile ({pCountry:pCountry1})">
 											{this.props.literals.L22003}
 											</Link>
 										</h3>
-										<p class="content-text">{ReactHtmlParser(this.props.literals.L22028)}</p>
+										<p className="content-text">{ReactHtmlParser(this.props.literals.L22028)}</p>
 									</div>
-									<p class="btn--card--carousel">
-										<Link ui-sref="economic-sector-profile ({pCountry:pCountry1})" class="btn-default btn-main-color btn-full">
+									<p className="btn--card--carousel">
+										<Link to="economic-sector-profile ({pCountry:pCountry1})" className="btn-default btn-main-color btn-full">
 										{this.props.literals.L22026}
 										</Link>
 									</p>
 								</div>
 							</div>
-							<div class="item">
-							<div class="col-xs-12 col-sm-6 col-md-4 col-ml-3 col-lg-2">
-								<div class="content">
-									<Link class="icon--card national-icon" ui-sref="national-strategies">
+							<div className="item">
+							<div className="col-xs-12 col-sm-6 col-md-4 col-ml-3 col-lg-2">
+								<div className="content">
+									<Link className="icon--card national-icon" to="national-strategies">
 									</Link>
-									<h3 class="title--card">
-										<Link ui-sref="national-strategies">
+									<h3 className="title--card">
+										<Link to="national-strategies">
 										{this.props.literals.L22007}
 										</Link>
 									</h3>
-									<p class="content-text">{ReactHtmlParser(this.props.literals.L22038)}</p>
+									<p className="content-text">{ReactHtmlParser(this.props.literals.L22038)}</p>
 								</div>
-								<p class="btn--card--carousel">
-									<Link ng-if="strategyCountrySelected != '0'" ui-sref="country-profile({pIndicator: 'basic-information', pCountry1: strategyCountrySelected, pCountry2: 0})" class="btn-default btn-main-color btn-full">
+								<p className="btn--card--carousel">
+									<Link ng-if="strategyCountrySelected != '0'" to="country-profile({pIndicator: 'basic-information', pCountry1: strategyCountrySelected, pCountry2: 0})" className="btn-default btn-main-color btn-full">
 									{this.props.literals.L22026}
 									</Link>
-									<Link ng-if="strategyCountrySelected == '0'" ui-sref="national-strategies" class="btn-default btn-main-color btn-full">
+									<Link ng-if="strategyCountrySelected == '0'" to="national-strategies" className="btn-default btn-main-color btn-full">
 									{this.props.literals.L22026}
 									</Link>
 								</p>
 							</div>
 							</div>
-							<div class="item">
-								<div class="col-xs-12 col-sm-6 col-md-4 col-ml-3 col-lg-2">
-									<div class="content">
-										<Link class="icon--card work-accidents-icon" ui-sref="work-accidents ({pCountry1:pCountry1})">
+							<div className="item">
+								<div className="col-xs-12 col-sm-6 col-md-4 col-ml-3 col-lg-2">
+									<div className="content">
+										<Link className="icon--card work-accidents-icon" to="work-accidents ({pCountry1:pCountry1})">
 										</Link>
-										<h3 class="title--card">
-											<Link ui-sref="work-accidents ({pCountry1:pCountry1})">
+										<h3 className="title--card">
+											<Link to="work-accidents ({pCountry1:pCountry1})">
 											{this.props.literals.L22010}
 											</Link>
 										</h3>
-										<p class="content-text">{ReactHtmlParser(this.props.literals.L22050)}</p>
+										<p className="content-text">{ReactHtmlParser(this.props.literals.L22050)}</p>
 									</div>
-									<p class="btn--card--carousel">
-										<Link ui-sref="work-accidents ({pCountry1:pCountry1})" class="btn-default btn-main-color btn-full">
+									<p className="btn--card--carousel">
+										<Link to="work-accidents ({pCountry1:pCountry1})" className="btn-default btn-main-color btn-full">
 										{this.props.literals.L22026}
 										</Link>
 									</p>
 								</div>
 							</div>
-							<div class="item">
-								<div class="col-xs-12 col-sm-6 col-md-4 col-ml-3 col-lg-2">
-									<div class="content">
-										<Link class="icon--card statistics-icon" ui-sref="osh-statistics">
+							<div className="item">
+								<div className="col-xs-12 col-sm-6 col-md-4 col-ml-3 col-lg-2">
+									<div className="content">
+										<Link className="icon--card statistics-icon" to="osh-statistics">
 										</Link>
-										<h3 class="title--card">
-											<Link ui-sref="osh-statistics">
+										<h3 className="title--card">
+											<Link to="osh-statistics">
 											{this.props.literals.L22018}
 											</Link>
 										</h3>
-										<p class="content-text">{ReactHtmlParser(this.props.literals.L22065)}</p>
+										<p className="content-text">{ReactHtmlParser(this.props.literals.L22065)}</p>
 									</div>
-									<p class="btn--card--carousel">
-										<Link ng-if="statisticsCountrySelected != '0'" ui-sref="osh-statistics({pCountry: statisticsCountrySelected})" class="btn-default btn-main-color btn-full">
+									<p className="btn--card--carousel">
+										<Link ng-if="statisticsCountrySelected != '0'" to="osh-statistics({pCountry: statisticsCountrySelected})" className="btn-default btn-main-color btn-full">
 										{this.props.literals.L22026}
 										</Link>
-										<Link ng-if="statisticsCountrySelected == '0'" ui-sref="osh-statistics" class="btn-default btn-main-color btn-full">
+										<Link ng-if="statisticsCountrySelected == '0'" to="osh-statistics" className="btn-default btn-main-color btn-full">
 										{this.props.literals.L22026}
 										</Link>
 									</p>
 								</div>
 							</div>
-							<div class="item">
-								<div class="col-xs-12 col-sm-6 col-md-4 col-ml-3 col-lg-2">
-									<div class="content">
-										<Link class="icon--card working-conditons-icon" ui-sref="working-conditions">
+							<div className="item">
+								<div className="col-xs-12 col-sm-6 col-md-4 col-ml-3 col-lg-2">
+									<div className="content">
+										<Link className="icon--card working-conditons-icon" to="working-conditions">
 										</Link>
-										<h3 class="title--card">
-											<Link ui-sref="working-conditions">
+										<h3 className="title--card">
+											<Link to="working-conditions">
 											{this.props.literals.L22013}
 											</Link>
 										</h3>
-										<p class="content-text">{ReactHtmlParser(this.props.literals.L22054)}</p>
+										<p className="content-text">{ReactHtmlParser(this.props.literals.L22054)}</p>
 									</div>
-									<p class="btn--card--carousel">
-										<Link ui-sref="working-conditions" class="btn-default btn-main-color btn-full">
+									<p className="btn--card--carousel">
+										<Link to="working-conditions" className="btn-default btn-main-color btn-full">
 										{this.props.literals.L22026}
 										</Link>
 									</p>
 								</div>
 							</div>
-							<div class="item">
-								<div class="col-xs-12 col-sm-6 col-md-4 col-ml-3 col-lg-2">
-									<div class="content">
-										<Link class="icon--card people-group-icon" ui-sref="workforce-profile">
+							<div className="item">
+								<div className="col-xs-12 col-sm-6 col-md-4 col-ml-3 col-lg-2">
+									<div className="content">
+										<Link className="icon--card people-group-icon" to="workforce-profile">
 										</Link>
-										<h3 class="title--card">
-											<Link ui-sref="workforce-profile" >
+										<h3 className="title--card">
+											<Link to="workforce-profile" >
 											{this.props.literals.L22004}
 											</Link>
 										</h3>
-										<p class="content-text">{ReactHtmlParser(this.props.literals.L22030)}</p>
+										<p className="content-text">{ReactHtmlParser(this.props.literals.L22030)}</p>
 									</div>
-									<p class="btn--card--carousel">
-										<Link ui-sref="workforce-profile" class="btn-default btn-main-color btn-full">
+									<p className="btn--card--carousel">
+										<Link to="workforce-profile" className="btn-default btn-main-color btn-full">
 										{this.props.literals.L22026}
 										</Link>
 									</p>
@@ -247,7 +336,7 @@ class Home extends Component
 						<h3 className="">{this.props.literals.L22115}</h3>
 						<p className="">{this.props.literals.L22116}</p>
 						<p className="btn--wrapper btn--block-arrow">
-							<a ui-sref="about-tool-detail-page({pSection: father, pSubsection: section.toLowerCase(), pIndicator: pIndicatorID})" className="btn-default btn-main-color text-center ng-binding" href="#!/about-the-system/methodology">{this.props.literals.L22117}</a>
+							<a to="about-tool-detail-page({pSection: father, pSubsection: section.toLowerCase(), pIndicator: pIndicatorID})" className="btn-default btn-main-color text-center ng-binding" href="#!/about-the-system/methodology">{this.props.literals.L22117}</a>
 						</p>
 					</div>
 				</section>
