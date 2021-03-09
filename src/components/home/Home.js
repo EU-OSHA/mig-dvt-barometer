@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import ReactHtmlParser from 'react-html-parser';
+import { Link } from 'react-router-dom';
 
 class Home extends Component
 {
@@ -14,30 +16,27 @@ class Home extends Component
 								<span className="title">{this.props.literals.L22020}</span> 
 								<span className="subtitle">{this.props.literals.L22107}</span>
 							</p>
-							<div data-ng-bind-html="i18n.L22108" className="">
-							{this.props.literals.L22108}
-								{/* <p>The OSH Barometer is an EU-wide public information system on the most important facts and figures of <strong>Occupational Safety and Health</strong>. The system provides visualised information for important OSH indicators at EU and national level; it is based on statistics, surveys and public data.</p>
-								<p>The OSH Barometer presents data from several different sources; some dating back to 2010 where trends are presented. At the time these data were collected, the UK was still a member of the European Union and therefore the UK results are included in the OSH Barometer and the EU average is presented as EU28. In successive updates of the OSH Barometer, UK data will be progressively eliminated.</p> */}
+							<div className="">							
+							{ReactHtmlParser(this.props.literals.L22108)}
 							</div>
 							<p className="btn--block-full left-text">
 								<a data-ui-sref="about-tool" className="btn-default btn-main-color ng-binding" data-ng-bind="i18n.L22110" href="about-the-system">Discover the tool</a>
 							</p>
 						</div>
 						<div className="column--item valign eu-background">
-							<p className="lead-title ng-binding" data-ng-bind="i18n.L22109">The OSH BAROMETER is a reliable public information system on facts and figures of OSH in the EU.</p>
+							<p className="lead-title ng-binding">{this.props.literals.L22109}</p>
 						</div>
 					</div>
 				</section>
 				<div className="container preferences--lock">
-					<h2 className="title-section main-color text-center ng-binding" data-ng-bind="i18n.L22111">Select your preferences</h2>
-					<div className="preferences-text ng-binding" data-ng-bind-html="i18n.L22112">
-						<p>The countries selected will always be shown first be kept while navigating through the tool.</p>
-						<p>You can change the country selection on every page. To change your preferences please return to this page. </p>
+					<h2 className="title-section main-color text-center ng-binding">{this.props.literals.L22111}</h2>
+					<div className="preferences-text ng-binding">
+						{ReactHtmlParser(this.props.literals.L22112)}
 					</div>
 					<form className="ng-pristine ng-valid">
 						<div className="country-selected-wrapper">
 							<select data-ng-model="pCountry1" data-ng-change="changeCountry()" data-ng-disabled="selectDisabled" className="ng-pristine ng-untouched ng-valid">
-								<option value="0" disabled="disabled" data-ng-bind="i18n.L22113" className="">Choose country of interest</option>
+								<option value="0" disabled="disabled" className="">{this.props.literals.L22113}</option>
 								<option value="AT">(AT) Austria</option>
 								<option value="BE">(BE) Belgium</option>
 								<option value="BG">(BG) Bulgaria</option>
@@ -77,12 +76,153 @@ class Home extends Component
 						<div className="country-selected">
 							<label data-ng-show="selectDisabled" className="ng-hide">
 								&nbsp; <i className="fa fa-check" aria-hidden="true"></i> 
-								<span data-ng-bind="i18n.L22186" className="">Country selected!
+								<span className="">{this.props.literals.L22186}
 								</span>
 							</label>
 						</div>
 					</form>
 				</div>
+
+				{/* CARROUSEL HOME */}
+				<section class=" section--page carrousel-items background-main-lighter">
+					<div class="container discover--charts--section">
+						<h2 class="title-section main-color"></h2>
+						<div class="carousel-control-group">
+							<Link class="left carousel-control" href="#carousel-tilenav" ng-non-bindable data-slide="next">
+								<i class="fa fa-angle-right" aria-hidden="true"></i>
+							</Link>
+							<Link class="right carousel-control" href="#carousel-tilenav" ng-non-bindable data-slide="prev">
+								<i class="fa fa-angle-left" aria-hidden="true"></i>
+							</Link>
+						</div>
+					</div>
+					<div class="carousel carousel-showmanymoveone slide" id="carousel-tilenav" data-interval="false">
+						<div class="carousel-inner">
+							<div class="item active">
+								<div class="col-xs-12 col-sm-6 col-md-4 col-ml-3 col-lg-2">
+									<div class="content">
+										<Link class="icon--card economic-chart-icon" ui-sref="economic-sector-profile ({pCountry:pCountry1})">
+										</Link>
+										<h3 class="title--card">
+											<Link ui-sref="economic-sector-profile ({pCountry:pCountry1})">
+											{this.props.literals.L22003}
+											</Link>
+										</h3>
+										<p class="content-text">{ReactHtmlParser(this.props.literals.L22028)}</p>
+									</div>
+									<p class="btn--card--carousel">
+										<Link ui-sref="economic-sector-profile ({pCountry:pCountry1})" class="btn-default btn-main-color btn-full">
+										{this.props.literals.L22026}
+										</Link>
+									</p>
+								</div>
+							</div>
+							<div class="item">
+							<div class="col-xs-12 col-sm-6 col-md-4 col-ml-3 col-lg-2">
+								<div class="content">
+									<Link class="icon--card national-icon" ui-sref="national-strategies">
+									</Link>
+									<h3 class="title--card">
+										<Link ui-sref="national-strategies">
+										{this.props.literals.L22007}
+										</Link>
+									</h3>
+									<p class="content-text">{ReactHtmlParser(this.props.literals.L22038)}</p>
+								</div>
+								<p class="btn--card--carousel">
+									<Link ng-if="strategyCountrySelected != '0'" ui-sref="country-profile({pIndicator: 'basic-information', pCountry1: strategyCountrySelected, pCountry2: 0})" class="btn-default btn-main-color btn-full">
+									{this.props.literals.L22026}
+									</Link>
+									<Link ng-if="strategyCountrySelected == '0'" ui-sref="national-strategies" class="btn-default btn-main-color btn-full">
+									{this.props.literals.L22026}
+									</Link>
+								</p>
+							</div>
+							</div>
+							<div class="item">
+								<div class="col-xs-12 col-sm-6 col-md-4 col-ml-3 col-lg-2">
+									<div class="content">
+										<Link class="icon--card work-accidents-icon" ui-sref="work-accidents ({pCountry1:pCountry1})">
+										</Link>
+										<h3 class="title--card">
+											<Link ui-sref="work-accidents ({pCountry1:pCountry1})">
+											{this.props.literals.L22010}
+											</Link>
+										</h3>
+										<p class="content-text">{ReactHtmlParser(this.props.literals.L22050)}</p>
+									</div>
+									<p class="btn--card--carousel">
+										<Link ui-sref="work-accidents ({pCountry1:pCountry1})" class="btn-default btn-main-color btn-full">
+										{this.props.literals.L22026}
+										</Link>
+									</p>
+								</div>
+							</div>
+							<div class="item">
+								<div class="col-xs-12 col-sm-6 col-md-4 col-ml-3 col-lg-2">
+									<div class="content">
+										<Link class="icon--card statistics-icon" ui-sref="osh-statistics">
+										</Link>
+										<h3 class="title--card">
+											<Link ui-sref="osh-statistics">
+											{this.props.literals.L22018}
+											</Link>
+										</h3>
+										<p class="content-text">{ReactHtmlParser(this.props.literals.L22065)}</p>
+									</div>
+									<p class="btn--card--carousel">
+										<Link ng-if="statisticsCountrySelected != '0'" ui-sref="osh-statistics({pCountry: statisticsCountrySelected})" class="btn-default btn-main-color btn-full">
+										{this.props.literals.L22026}
+										</Link>
+										<Link ng-if="statisticsCountrySelected == '0'" ui-sref="osh-statistics" class="btn-default btn-main-color btn-full">
+										{this.props.literals.L22026}
+										</Link>
+									</p>
+								</div>
+							</div>
+							<div class="item">
+								<div class="col-xs-12 col-sm-6 col-md-4 col-ml-3 col-lg-2">
+									<div class="content">
+										<Link class="icon--card working-conditons-icon" ui-sref="working-conditions">
+										</Link>
+										<h3 class="title--card">
+											<Link ui-sref="working-conditions">
+											{this.props.literals.L22013}
+											</Link>
+										</h3>
+										<p class="content-text">{ReactHtmlParser(this.props.literals.L22054)}</p>
+									</div>
+									<p class="btn--card--carousel">
+										<Link ui-sref="working-conditions" class="btn-default btn-main-color btn-full">
+										{this.props.literals.L22026}
+										</Link>
+									</p>
+								</div>
+							</div>
+							<div class="item">
+								<div class="col-xs-12 col-sm-6 col-md-4 col-ml-3 col-lg-2">
+									<div class="content">
+										<Link class="icon--card people-group-icon" ui-sref="workforce-profile">
+										</Link>
+										<h3 class="title--card">
+											<Link ui-sref="workforce-profile" >
+											{this.props.literals.L22004}
+											</Link>
+										</h3>
+										<p class="content-text">{ReactHtmlParser(this.props.literals.L22030)}</p>
+									</div>
+									<p class="btn--card--carousel">
+										<Link ui-sref="workforce-profile" class="btn-default btn-main-color btn-full">
+										{this.props.literals.L22026}
+										</Link>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				{/* CARROUSEL HOME */}
+
 				<section className="section--page section--our--methodology">
 					<div className="agencies--logos--block">
 						<ul>
@@ -103,11 +243,11 @@ class Home extends Component
 						</ul>
 					</div>
 					<div className="content-methodology">
-						<h2 data-ng-bind="i18n.L22114" className="">METHODOLOGY</h2>
-						<h3 data-ng-bind="i18n.L22115" className="">EU-OSHA ensures the highest possible transparency and data quality</h3>
-						<p data-ng-bind="i18n.L22116" className="">This methodology informs about our approach, the sources and selection of data, calculation methods and it contains all references and data sources that were used to provide texts, diagrams and tables.</p>
+						<h2 className="">{this.props.literals.L22114}</h2>
+						<h3 className="">{this.props.literals.L22115}</h3>
+						<p className="">{this.props.literals.L22116}</p>
 						<p className="btn--wrapper btn--block-arrow">
-							<a ui-sref="about-tool-detail-page({pSection: father, pSubsection: section.toLowerCase(), pIndicator: pIndicatorID})" className="btn-default btn-main-color text-center ng-binding" data-ng-bind="i18n.L22117" href="#!/about-the-system/methodology">Discover the methodology</a>
+							<a ui-sref="about-tool-detail-page({pSection: father, pSubsection: section.toLowerCase(), pIndicator: pIndicatorID})" className="btn-default btn-main-color text-center ng-binding" href="#!/about-the-system/methodology">{this.props.literals.L22117}</a>
 						</p>
 					</div>
 				</section>

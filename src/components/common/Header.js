@@ -166,21 +166,13 @@ class Header extends Component
 						<div className="social--network--nav" id="osha-menu-social">
 							<label data-ng-bind="i18n_literals.L369" className="ng-binding">Share this on:</label>
 							<ul>
-							<li><a className="main-color" target="_blank" socialshare="" socialshare-provider="twitter" title="Twitter" socialshare-text="Home - OSH Barometer | Data Visualisation" socialshare-url="https://visualisation.osha.europa.eu/osh-barometer"><i className="fa fa-lg fa-twitter" aria-hidden="true"></i><span className="sr-only ng-binding" data-ng-bind="(i18n_literals.L369) + (i18n_literals.L370)">Share this on:Twitter</span></a></li>
+							<li><a className="main-color" target="_blank" title="Twitter" socialshare-text="Home - OSH Barometer | Data Visualisation" href="https://twitter.com/intent/tweet?url=https://visualisation.osha.europa.eu/osh-barometer"><i className="fa fa-lg fa-twitter" aria-hidden="true"></i><span className="sr-only ng-binding" data-ng-bind="(i18n_literals.L369) + (i18n_literals.L370)">Share this on:Twitter</span></a></li>
 							<li><a className="main-color" target="_blank" socialshare="" socialshare-provider="facebook" title="Facebook" socialshare-url="https://visualisation.osha.europa.eu/osh-barometer"><i className="fa fa-lg fa-facebook" aria-hidden="true"></i><span className="sr-only ng-binding" data-ng-bind="(i18n_literals.L369) + (i18n_literals.L371)">Share this on:Facebook</span></a></li>
 							<li><a className="main-color" target="_blank" socialshare="" socialshare-provider="linkedin" title="LinkedIn" socialshare-url="https://visualisation.osha.europa.eu/osh-barometer"><i className="fa fa-lg fa-linkedin" aria-hidden="true"></i><span className="sr-only ng-binding" data-ng-bind="(i18n_literals.L369) + (i18n_literals.L372)">Share this on:LinkedIn</span></a></li>
 							</ul>
 						</div>
 					</section>
 				</header>
-
-				{/*
-				<h1>OSH-Barometer</h1>
-				<NavLink className="header-link" accessKey="0" tabIndex="1" to="/">Home</NavLink>
-				<NavLink className="header-link" to="/generic-information/osh-authorities">OSH Authorities</NavLink>
-				<NavLink className="header-link" to="/generic-information/economic-sector-profile">Economic and Sector Profile</NavLink>
-				<NavLink className="header-link" to="/generic-information/workforce-profile">Workforce Profile</NavLink>
-				*/}
 			</div>
 		)
 	}
