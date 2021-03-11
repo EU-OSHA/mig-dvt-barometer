@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 
 class Footer extends Component
 {
@@ -15,19 +16,19 @@ class Footer extends Component
 						</p>
 						<ul className="footer-nav-accessibility list-inline col-xs-12 col-md-5">						  
 							<li>
-								<a ui-sref="site-map()" accessKey="M" className="menu__link"><span data-ng-bind="i18n.L356">Site map</span></a>
+								<NavLink to="/sitemap" accessKey="M" className="menu__link"><span data-ng-bind="i18n.L356">Site map</span></NavLink>
 							</li>
 							<li>
 								<a target="_blank" href="https://osha.europa.eu/en/contact-us" accessKey="C" className="menu__link"> <span data-ng-bind="i18n.L357">Contact us</span></a>
 							</li>
 							<li>
-								<a ui-sref='accessibility()' accessKey="K" className="menu__link"> <span data-ng-bind="i18n.L358">Accessibility</span> </a>
+								<NavLink to='/accesibility' accessKey="K" className="menu__link"> <span data-ng-bind="i18n.L358">Accessibility</span> </NavLink>
 							</li>
 							<li>
-								<a ui-sref="privacy-policy()" accessKey="P" className="menu__link"> <span data-ng-bind="i18n.L359">Privacy notice</span></a>
+								<NavLink to="/privacy-policy" accessKey="P" className="menu__link"> <span data-ng-bind="i18n.L359">Privacy notice</span></NavLink>
 							</li>
 							<li>
-								<a ui-sref='legal-notice()' accessKey="N" className="menu__link"> <span data-ng-bind="i18n.L360">Legal notice</span></a>
+								<NavLink to='/legal-notice' accessKey="N" className="menu__link"> <span data-ng-bind="i18n.L360">Legal notice</span></NavLink>
 							</li>
 						</ul>
 						<ul className="footer-social-network list-inline col-xs-12 col-md-3 pull-right">

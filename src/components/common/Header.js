@@ -72,17 +72,17 @@ class Header extends Component
 										</a>
 										<ul className="dropdown-menu ng-scope" ng-if="level0.levels">
 											<li ng-repeat="level1 in level0.levels" ng-className="isCurrentStateMenu('regulation')" className="ng-scope">
-												<a ng-if="level1.sref" ui-sref="regulation" id="regulation" accessKey="2" className="ng-scope" href="osh-steering/regulation/secondary-legislation/AT/BE"><span data-ng-bind-html="i18n_literals[level1.name]" className="ng-binding">Regulation</span></a>
+												<a ng-if="level1.sref" ui-sref="regulation" id="regulation" accessKey="2" className="ng-scope" href="/osh-steering/regulation"><span data-ng-bind-html="i18n_literals[level1.name]" className="ng-binding">Regulation</span></a>
 											</li>										
 											<li ng-repeat="level1 in level0.levels" ng-className="isCurrentStateMenu('national-strategies')" className="ng-scope">
-												<a ng-if="level1.sref" ui-sref="national-strategies" id="national-strategies" accessKey="" className="ng-scope" href="osh-steering/national-strategies"><span data-ng-bind-html="i18n_literals[level1.name]" className="ng-binding">National strategies</span></a>
+												<a ng-if="level1.sref" ui-sref="national-strategies" id="national-strategies" accessKey="" className="ng-scope" href="/osh-steering/national-strategies"><span data-ng-bind-html="i18n_literals[level1.name]" className="ng-binding">National strategies</span></a>
 											</li>										
 											<li ng-repeat="level1 in level0.levels" ng-className="isCurrentStateMenu('structure-strategy')" className="ng-scope hidden">
 											</li>										
 											<li ng-repeat="level1 in level0.levels" ng-className="isCurrentStateMenu('response-strategy')" className="ng-scope hidden">
 											</li>										
 											<li ng-repeat="level1 in level0.levels" ng-className="isCurrentStateMenu('social-dialogue')" className="ng-scope">
-												<a ng-if="level1.sref" ui-sref="social-dialogue" id="social-dialogue" accessKey="" className="ng-scope" href="osh-steering/social-dialogue"><span data-ng-bind-html="i18n_literals[level1.name]" className="ng-binding">Social dialogue</span></a>
+												<a ng-if="level1.sref" ui-sref="social-dialogue" id="social-dialogue" accessKey="" className="ng-scope" href="/osh-steering/social-dialogue"><span data-ng-bind-html="i18n_literals[level1.name]" className="ng-binding">Social dialogue</span></a>
 											</li>										
 										</ul>
 									</li>

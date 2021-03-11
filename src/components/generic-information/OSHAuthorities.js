@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 import Methodology from '../common/Methodology';
+import AdviceSection from '../common/AdviceSection';
 
 
 class OSHAuthorities extends Component
