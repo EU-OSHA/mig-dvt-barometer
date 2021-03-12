@@ -46,10 +46,10 @@ class NationalStrategies extends Component
 						</p>
 						<h2 className="text-center" data-ng-bind="i18nLiterals['L'+country.country]"></h2>
 						<p className="btn--block-full left-text">
-							<Link to="country-profile({pIndicator: 'basic-information', pCountry1:country.country_code, pCountry2: 0})" className="btn-default btn-main-color btn-full" title="{this.props.literals.L20626}">{this.props.literals.L20626}</Link>
+							<Link to="country-profile" className="btn-default btn-main-color btn-full" title="{this.props.literals.L20626}">{this.props.literals.L20626}</Link>
 						</p>
 						<p className="btn--block-full left-text">
-							<Link to="EU-challenges-response({pCountry:country.country_code})" className="btn-default btn-main-color btn-full" title="{this.props.literals.L20625}" >{this.props.literals.L20625}</Link>
+							<Link to="EU-challenges-response" className="btn-default btn-main-color btn-full" title="{this.props.literals.L20625}" >{this.props.literals.L20625}</Link>
 						</p>
 						</div>
 					</div>
