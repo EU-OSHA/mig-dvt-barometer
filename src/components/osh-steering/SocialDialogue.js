@@ -28,10 +28,10 @@ class SocialDialogue extends Component
 					<div className="highlited--data--block container">
 					<div className="highlited-data-item">
 						<div className="flags--wrapper">
-						<img  ng-src="../../style/img/flag/eu28.png" width="94px" />
+						<img src={require("../../style/img/flag/eu28.png")} width="94px" />
 						</div>
 						<div className="eu-data">
-							<h2 className="country title-section main-color" data-ng-bind="i18nLiterals['L'+EUData.country_name]"></h2>
+							<h2 className="country title-section main-color" data-ng-bind="i18nLiterals['L'+EUData.country_name]">EU27_2020</h2>
 							<p className="download-report" >
 								<Link href="./osh-steering/social-dialogue/pdf/Social_Dialogue_{{EUData.country_code}}.pdf" className="download-pdf" target="_blank">
 									{ReactHtmlParser(this.props.literals.L20637)}

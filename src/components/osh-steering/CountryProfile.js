@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactHtmlParser from 'react-html-parser';
 import { Link } from 'react-router-dom';
+import Methodology from '../common/Methodology';
 
 class CountryProfile extends Component
 {
@@ -24,7 +25,7 @@ class CountryProfile extends Component
 
 				<div className="container">
 					<p className="btn--block-full left-text">
-						<Link to="EU-challenges-response({pCountry:'0'})" className="btn-default btn-main-color" title="{this.props.literals.L20625}">{this.props.literals.L20625}</Link>
+						<Link to="EU-challenges-response" className="btn-default btn-main-color" title="{this.props.literals.L20625}">{this.props.literals.L20625}</Link>
 					</p>
 				</div>
 
@@ -396,7 +397,7 @@ class CountryProfile extends Component
 					</div>
 				</section>
 
-
+				<Methodology />
 			</div>
 		)
 	}
