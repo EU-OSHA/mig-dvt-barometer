@@ -25,8 +25,8 @@ class NationalStrategies extends Component
 				}
 			}
 		}
+		temporalArray.sort();
 		this.setState({alphabet: temporalArray});
-		this.state.alphabet.sort();
 	}
 
 	componentDidMount(){
