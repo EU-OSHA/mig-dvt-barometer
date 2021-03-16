@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import $ from "jquery";
 
 class Footer extends Component
 {
+	gotoTop() {
+        $('html,body').animate({ 'scrollTop': 0 }, 'slow');
+    };
 	render()
 	{
 		return(
 			<div>
 				<p className="go-to">
-					<a href="javascript:gotoTop()"></a>
+					<a onClick={this.gotoTop}  title="Go to top"></a>
 				</p>
 				<footer className="bar-container nopadding container-fluid">
 					<div className="footer-elements">
