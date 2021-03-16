@@ -16,7 +16,15 @@
 			  	background: $orange;
 			  	color: $white;
 			  	border-radius: 4px;
+				  &:hover{
+					cursor: pointer;
+					color: $white;
+					}
 			  }
+			  &:hover{
+				cursor: pointer;
+				color: $orange;
+				}
 			}
 		}
 		.btn-reset{

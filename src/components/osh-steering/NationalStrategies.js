@@ -126,7 +126,7 @@ class NationalStrategies extends Component
 								<div className="card--block--rounded national--card--item" key={index}>
 									<div className="resources-item">
 										<p className="nopadding additional-img text-center">
-											<img className="flags--wrapper" src={require(`../../style/img/flag/at.png`)} alt={country.name} />
+											<img className="flags--wrapper" src={require('../../style/img/flag/at.png')} alt={country.name} />
 											{/* <img className="flags--wrapper" src={require(`../../style/img/flag/${country.code.toLowerCase()}.png`)} alt={country.name} /> */}
 											{/* <img className="flags--wrapper" ng-src="../../style/img/flag/{{::country.country_code.toLowerCase()}}.png" /> */}
 										</p>
